@@ -9,8 +9,8 @@ import {
 const Main = () => {
   return (
     <div id="main">
-      <img className=" w-full  h-screen object-cover  " src="/77.jpeg" alt="" />
-      <div className=" w-full h-screen absolute top-0 left-0 bg-black/80">
+      <img className=" w-full  h-screen object-cover  " src="/88.png" alt="" />
+      <div className=" w-full h-screen absolute top-0 left-0 ">
         <div className="max-w-[700px] m-auto h-full flex flex-col justify-center le:items-start items-center">
           <h1 className="sm:text-5xl text-4xl font-bold  text-white">
             I'm Mohd Suaib Warsi
