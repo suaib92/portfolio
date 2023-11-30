@@ -20,13 +20,13 @@ const Sidenav = () => {
               </a>
               <a onClick={handleNev}  href="#about" className='  w-96 flex justify-center  items-center rounded-full shadow-lg bg-gray-100 n shodow-gray-400 m-2 p-3 cursor-pointer hover:scale-110 ease-in duration-200  '>
                 <BsPerson size={20}/>
-                <span className='pl-4'>Resume</span>
+                <span className='pl-4'>About</span>
               </a>
               <a onClick={handleNev}  href="#work" className='  w-96 flex justify-center  items-center rounded-full shadow-lg bg-gray-100 n shodow-gray-400 m-2 p-3 cursor-pointer hover:scale-110 ease-in duration-200  '>
                 <GrProjects size={20}/>
                 <span className='pl-4'>Work</span>
               </a>
-              <a onClick={handleNev}  href="#project" className=' w-96 flex justify-center  items-center rounded-full shadow-lg bg-gray-100 n shodow-gray-400 m-2 p-3 cursor-pointer hover:scale-110 ease-in duration-200  '>
+              <a onClick={handleNev}  href="#projects" className=' w-96 flex justify-center  items-center rounded-full shadow-lg bg-gray-100 n shodow-gray-400 m-2 p-3 cursor-pointer hover:scale-110 ease-in duration-200  '>
                 <AiOutlineProject size={20}/>
                 <span className='pl-4'>Projects</span>
               </a>
