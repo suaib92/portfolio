@@ -2,11 +2,10 @@ import React from "react";
 
 const Contact = () => {
   return (
+
     <div id="contact" className="max-w-[1040px] m-auto md:pl-20 p-4 py-16">
       {/* Heading for the contact section */}
-      <h1 className="py-4 text-xl font-bold text-center text-[#001b5e]">
-        Contact
-      </h1>
+            <h1 className="text-4xl font-bold text-center text-[#001b5e]">Contaact Me</h1>
 
       {/* Form for user to submit their contact information */}
       <form action="https://getform.io/f/d579fca6-d64a-410b-a822-2499be89c786" method="POST" encType="multipart/form-data">

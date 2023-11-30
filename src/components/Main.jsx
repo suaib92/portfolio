@@ -6,7 +6,7 @@ import {
   FaInstagram,
   FaLinkedinIn,
 } from "react-icons/fa";
-import img from "../assets/main.png"
+import img from "../assets/main.png";
 
 const Main = () => {
   return (
@@ -69,6 +69,31 @@ const Main = () => {
               />
             </a>
           </div>
+          <a
+            
+            download=""
+            className="flex items-center md:p-2 md:px-4 md:text-base dark:text-dark dark:bg-light bg-dark text-light p-2.5 px-6 rounded-lg text-lg font-semibold hover:dark:bg-dark hover:dark:text-light hover:dark:border-light hover:bg-light hover:text-dark border-2  border-solid border-transparent hover:border-dark  bg-white m-4"
+            href="https://drive.google.com/uc?export=download&id=1--P6EiOqUxjz0Flv_YVEePymuFl4QCif"
+          >
+            Resume{" "}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="26"
+              height="26"
+              viewBox="0 0 24 24"
+              className=" h-auto w-6 ml-1"
+            >
+              <path fill="none" d="M0 0h24v24H0z"></path>
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M11 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-5m-7 1L20 4m-5 0h5v5"
+              ></path>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
