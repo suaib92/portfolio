@@ -84,7 +84,7 @@ const About = () => {
         />
 
         <motion.div className="text-white" variants={textVariants}>
-          <p className="text-lg md:text-xl text-justify  text-black mb-6 mr-4 ml-4">
+          <p className="text-lg md:text-xl text-justify   mb-6 mr-4 ml-4 ">
             Hey there! I'm an enthusiastic full-stack web developer with a
             passion for crafting exceptional digital experiences. With a year of
             hands-on experience, I specialize in creating dynamic front-end
@@ -92,7 +92,7 @@ const About = () => {
             JavaScript.
           </p>
 
-          <p className="text-lg md:text-xl text-justify text-black mb-6 mr-4 ml-4">
+          <p className="text-lg md:text-xl text-justify  mb-6 mr-4 ml-4">
             On the server-side, I'm well-versed in Node.js and Express.js, and I
             have expertise in both SQL and NoSQL databases. Git is my ally for
             version control, ensuring clean and collaborative coding practices.
@@ -100,7 +100,7 @@ const About = () => {
             cloud platforms like AWS.
           </p>
 
-          <p className="text-lg md:text-xl text-justify  text-black mb-6 mr-4 ml-4">
+          <p className="text-lg md:text-xl text-justify   mb-6 mr-4 ml-4">
             Eager to learn and adapt in the ever-evolving web development
             landscape, I'm driven by a passion to transform ideas into seamless
             digital solutions. Let's connect and craft something amazing

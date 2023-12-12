@@ -5,10 +5,10 @@ import ytImg from "../assets/yt.png";
 const Projects = () => {
   return (
     <div id="projects" className="max-ww[1040px m-auto md:pl-20 p-4 py-16">
-      <h1 className="text-4xl font-bold text-center text-[#001b5e]">
+      <h1 className="text-4xl font-bold text-center text-black">
         Projects
       </h1>
-      <p className=" text-center py-8">
+      <p className=" text-center py-8 text-white">
         "Create a powerful web application using the MERNS stack (MongoDB,
         Express.js, React.js, Node.js, and Socket.io). Enhance user experiences,
         enable real-time collaboration, and ensure scalability with this

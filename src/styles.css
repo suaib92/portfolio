@@ -1,0 +1,7 @@
+/* styles.css */
+.background {
+    background-image: url('./assets/qq.svg'); /* Replace with the actual path to your image */
+    background-size: cover; /* Adjust as needed */
+    background-position: center; /* Adjust as needed */
+  }
+  
