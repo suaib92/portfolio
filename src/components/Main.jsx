@@ -49,11 +49,12 @@ const Main = () => {
     const particlesGeometry = new THREE.BufferGeometry();
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.012,
-      color: 0xffffff, // White particles fit the theme
+      size: 0.008,
+      color: 0xf5f5f5, // Off-white particles
       transparent: true,
       blending: THREE.AdditiveBlending,
     });
+
     const particleSystem = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particleSystem);
 
