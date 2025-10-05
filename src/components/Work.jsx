@@ -3,27 +3,22 @@ import { motion } from 'framer-motion';
 
 const WORK_DATA = [
   {
-    role: 'Full Stack Developer',
-    company: 'Tech Solutions Inc.',
-    date: 'Jan 2024 - Present',
+    role: 'Web Developer',
+    company: 'TZS Digital',
+    date: 'Dec 2024 - Present',
     description:
-      'Developed and maintained full-stack web applications using the MERN stack. Collaborated with designers and product managers to create high-quality user experiences.',
+      'Working full-time on web development projects, building responsive and interactive web applications. Gaining experience in modern frontend and backend technologies.',
   },
   {
-    role: 'Junior Web Developer',
-    company: 'Creative Agency',
-    date: 'May 2023 - Dec 2023',
+    role: 'Full Stack Developer (Trainee / Internship)',
+    company: 'AlmaBetter',
+    date: 'Mar 2023 - Dec 2024',
     description:
-      'Assisted in building responsive websites for various clients using HTML, CSS, and JavaScript. Gained experience with version control and agile methodologies.',
+      'Trained in full-stack web development using MERN stack, TypeScript, and modern web technologies. Built projects including a Reserve Bus-booking App, Cryptocurrency Dashboard, and YouTube Subscribers API.',
   },
-  {
-    role: 'Web Development Intern',
-    company: 'Startup Hub',
-    date: 'Jan 2023 - Apr 2023',
-    description:
-      'Learned the fundamentals of web development in a fast-paced environment. Contributed to a project building an internal dashboard with React and Node.js.',
-  },
+ 
 ];
+
 
 const Work = () => {
   return (

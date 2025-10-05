@@ -4,6 +4,14 @@ import { X } from 'lucide-react';
 
 import cryptoImg from '../assets/crypto.png';
 import ytImg from '../assets/yt.png';
+// import bookmyshowImg from '../assets/bookmyshow.png';
+// import gifSearchImg from '../assets/gifsearch.png';
+// import chatAppImg from '../assets/chatapp.png';
+// import quizAppImg from '../assets/quizapp.png';
+// import todoImg from '../assets/todo.png';
+// import sequenceImg from '../assets/sequence.png';
+// import productListImg from '../assets/productlist.png';
+// import aiChatImg from '../assets/aichat.png';
 
 const PROJECTS_DATA = [
   {
@@ -18,12 +26,12 @@ const PROJECTS_DATA = [
   },
   {
     id: 2,
-    title: 'Get YT Subscriber',
+    title: 'Get YouTube Subscribers',
     description: 'A full-stack application to track and analyze YouTube subscriber growth. Built with the MERN stack.',
     imageUrl: ytImg,
     tags: ['MongoDB', 'Express', 'React', 'Node.js'],
     category: 'Full Stack',
-    liveUrl: '#',
+    liveUrl: 'https://get-youtube-subscribers-p7ok.onrender.com/',
     githubUrl: '#',
   },
   {
@@ -34,6 +42,86 @@ const PROJECTS_DATA = [
     tags: ['Next.js', 'Stripe', 'GraphQL', 'PostgreSQL'],
     category: 'Backend',
     liveUrl: '#',
+    githubUrl: '#',
+  },
+  {
+    id: 4,
+    title: 'BookMyShow',
+    description: 'Web application to book movie tickets, select seats, and view booking history using React, Bootstrap, Node.js, and MongoDB.',
+    imageUrl: 'https://placehold.co/600x400/18181b/ffffff?text=Project',
+    tags: ['React', 'Bootstrap', 'Node.js', 'MongoDB', 'Express', 'Axios'],
+    category: 'Full Stack',
+    liveUrl: 'https://bookmyshow-3.netlify.app/',
+    githubUrl: 'https://github.com/Ashvary1996/bookmyshow',
+  },
+  {
+    id: 5,
+    title: 'GIF Search Application',
+    description: 'Next.js application to search, view trending GIFs, filter by categories, and manage favorite GIFs using Giphy API.',
+    imageUrl: 'https://placehold.co/600x400/18181b/ffffff?text=Project',
+    tags: ['Next.js', 'React', 'Tailwind CSS', 'API'],
+    category: 'Frontend',
+    liveUrl: '#',
+    githubUrl: '#',
+  },
+  {
+    id: 6,
+    title: 'Chat Application',
+    description: 'Real-time chat application built with MERN stack and WebSocket, supporting file uploads and user authentication.',
+    imageUrl: 'https://placehold.co/600x400/18181b/ffffff?text=Project',
+    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'WebSocket', 'Tailwind CSS'],
+    category: 'Full Stack',
+    liveUrl: '#',
+    githubUrl: '#',
+  },
+  {
+    id: 7,
+    title: 'Quiz Application',
+    description: 'Full-stack quiz app using MERN stack and Redux. Supports tag selection, timed questions, and scoring system.',
+    imageUrl: 'https://placehold.co/600x400/18181b/ffffff?text=Project',
+    tags: ['React', 'Redux', 'Node.js', 'Express', 'MongoDB'],
+    category: 'Full Stack',
+    liveUrl: '#',
+    githubUrl: '#',
+  },
+  {
+    id: 8,
+    title: 'To-Do List Application',
+    description: 'Simple To-Do List application built with Next.js and Tailwind CSS, with localStorage for persistent storage.',
+    imageUrl: 'https://placehold.co/600x400/18181b/ffffff?text=Project',
+    tags: ['Next.js', 'React', 'Tailwind CSS', 'localStorage'],
+    category: 'Frontend',
+    liveUrl: '#',
+    githubUrl: '#',
+  },
+  {
+    id: 9,
+    title: 'Sequence Board Game',
+    description: 'Web-based Sequence game with real-time gameplay using React, Node.js, WebSocket, and MongoDB.',
+    imageUrl: 'https://placehold.co/600x400/18181b/ffffff?text=Project',
+    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Socket.io', 'Tailwind CSS'],
+    category: 'Full Stack',
+    liveUrl: '#',
+    githubUrl: 'https://github.com/AnishmMore/sequence-board-game',
+  },
+  {
+    id: 10,
+    title: 'Product Listing Page',
+    description: 'Responsive product listing page built with Next.js, Tailwind CSS, and a mock API, including search and product modal.',
+    imageUrl: 'https://placehold.co/600x400/18181b/ffffff?text=Project',
+    tags: ['Next.js', 'React', 'Tailwind CSS', 'API'],
+    category: 'Frontend',
+    liveUrl: 'https://product-listing-page-ebon.vercel.app/',
+    githubUrl: 'https://github.com/suaib92/Product-Listing-Page',
+  },
+  {
+    id: 11,
+    title: 'AI Chat Application',
+    description: 'React + Vite chat application with AI integration, WebSocket-based real-time messaging, and responsive UI.',
+    imageUrl: 'https://placehold.co/600x400/18181b/ffffff?text=Project',
+    tags: ['React', 'Vite', 'Express', 'Tailwind CSS', 'WebSocket'],
+    category: 'Full Stack',
+    liveUrl: 'https://my-aichat-app.netlify.app/',
     githubUrl: '#',
   },
 ];
@@ -163,11 +251,14 @@ const ProjectModal = ({ project, onClose }) => {
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [filter, setFilter] = useState('All');
+  const [showAll, setShowAll] = useState(false);
 
   const filteredProjects =
     filter === 'All'
       ? PROJECTS_DATA
       : PROJECTS_DATA.filter((project) => project.category === filter);
+
+  const visibleProjects = showAll ? filteredProjects : filteredProjects.slice(0, 6);
 
   const categories = ['All', 'Frontend', 'Backend', 'Full Stack'];
 
@@ -190,7 +281,10 @@ const Projects = () => {
         {categories.map((cat) => (
           <motion.button
             key={cat}
-            onClick={() => setFilter(cat)}
+            onClick={() => {
+              setFilter(cat);
+              setShowAll(false); // reset showAll when filter changes
+            }}
             whileHover={{ scale: 1.05, boxShadow: "0 0 12px rgba(0,255,255,0.2)" }}
             className={`inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 rounded-full ${
               filter === cat
@@ -205,10 +299,23 @@ const Projects = () => {
 
       {/* Project Cards */}
       <motion.div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredProjects.map((project) => (
+        {visibleProjects.map((project) => (
           <ProjectCard key={project.id} project={project} onCardClick={setSelectedProject} />
         ))}
       </motion.div>
+
+      {/* Show All Button */}
+      {filteredProjects.length > 6 && !showAll && (
+        <div className="flex justify-center mt-8">
+          <motion.button
+            onClick={() => setShowAll(true)}
+            whileHover={{ scale: 1.05, boxShadow: "0 0 12px rgba(0,255,255,0.2)" }}
+            className="px-6 py-3 bg-cyan-500 text-black font-semibold rounded-lg shadow-[0_0_15px_rgba(0,255,255,0.3)]"
+          >
+            Show All
+          </motion.button>
+        </div>
+      )}
 
       {/* Project Modal */}
       <AnimatePresence>
