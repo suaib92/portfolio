@@ -178,7 +178,7 @@ const Main = () => {
             />
           </div>
 
-          <p ref={bioRef} className="max-w-xl mx-auto text-base text-white/60 mb-10 leading-relaxed">
+          <p ref={bioRef} className="max-w-xl mx-auto text-base text-white/90 mb-10 leading-relaxed">
             Based in India. Specialized in building exceptional digital experiences with modern web technologies.
           </p>
 
