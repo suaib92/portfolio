@@ -14,7 +14,6 @@ const ScrollIndicator = () => (
   </div>
 );
 
-
 const Main = () => {
   const mountRef = useRef(null);
 
@@ -40,7 +39,8 @@ const Main = () => {
     renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
 
-    const particleCount = 7000;
+    // --- Particle system ---
+    const particleCount = 2000; // reduced density
     const positions = new Float32Array(particleCount * 3);
     for (let i = 0; i < particleCount * 3; i++) {
       positions[i] = (Math.random() - 0.5) * 15;
@@ -48,11 +48,13 @@ const Main = () => {
 
     const particlesGeometry = new THREE.BufferGeometry();
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
     const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.008,
-      color: 0xf5f5f5, // Off-white particles
+      size: 0.012, // slightly larger
+      color: 0xffffff, // white particles
       transparent: true,
       blending: THREE.AdditiveBlending,
+      opacity: 0.8,
     });
 
     const particleSystem = new THREE.Points(particlesGeometry, particlesMaterial);
@@ -71,27 +73,24 @@ const Main = () => {
       const starIndex = Math.floor(Math.random() * particleCount);
       const positions = particlesGeometry.attributes.position.array;
 
-      positions[starIndex * 3] = (Math.random() - 0.5) * 25;
-      positions[starIndex * 3 + 1] = 10 + Math.random() * 5;
+      positions[starIndex * 3] = (Math.random() - 0.5) * 20;
+      positions[starIndex * 3 + 1] = 8 + Math.random() * 5;
       positions[starIndex * 3 + 2] = (Math.random() - 0.5) * 10;
 
       const velocity = new THREE.Vector3(
-        (Math.random() < 0.5 ? 1 : -1) * (0.1 + Math.random() * 0.1),
-        -0.2 - Math.random() * 0.1,
+        (Math.random() < 0.5 ? 1 : -1) * (0.2 + Math.random() * 0.1),
+        -0.3 - Math.random() * 0.1,
         0
       );
 
-      shootingStar = {
-        index: starIndex,
-        velocity: velocity,
-        lifetime: 200,
-      };
+      shootingStar = { index: starIndex, velocity, lifetime: 150 };
     };
 
     const animate = () => {
       requestAnimationFrame(animate);
 
-      if (!shootingStar && Math.random() < 0.002) {
+      // Spawn shooting star randomly
+      if (!shootingStar && Math.random() < 0.005) {
         spawnShootingStar();
       }
 
@@ -103,7 +102,6 @@ const Main = () => {
         positions[i3 + 1] += shootingStar.velocity.y;
 
         shootingStar.lifetime--;
-
         if (shootingStar.lifetime <= 0) {
           positions[i3 + 1] = (Math.random() - 0.5) * 15;
           shootingStar = null;
@@ -111,9 +109,11 @@ const Main = () => {
         particlesGeometry.attributes.position.needsUpdate = true;
       }
 
+      // Camera movement follows mouse
       camera.position.x += (mouse.x * 0.5 - camera.position.x) * 0.02;
       camera.position.y += (mouse.y * 0.5 - camera.position.y) * 0.02;
       camera.lookAt(scene.position);
+
       renderer.render(scene, camera);
     };
     animate();
@@ -131,10 +131,7 @@ const Main = () => {
       particlesGeometry.dispose();
       particlesMaterial.dispose();
       renderer.dispose();
-      // Safe scene cleanup
-      while (scene.children.length > 0) {
-        scene.remove(scene.children[0]);
-      }
+      while (scene.children.length > 0) scene.remove(scene.children[0]);
     };
   }, []);
 
@@ -153,7 +150,6 @@ const Main = () => {
     return () => ctx.revert();
   }, []);
 
-
   return (
     <div id="main" className="relative w-full h-screen bg-black overflow-hidden">
       <canvas ref={mountRef} className="absolute top-0 left-0 w-full h-full z-0" />
@@ -168,11 +164,7 @@ const Main = () => {
 
           <div ref={titleRef} className="text-xl sm:text-2xl text-white/80 mb-6">
             <TypeAnimation
-              sequence={[
-                "MERN Stack Developer", 2000,
-                "Full Stack Developer", 2000,
-                "Creative Coder", 2000,
-              ]}
+              sequence={["MERN Stack Developer", 2000, "Full Stack Developer", 2000, "Creative Coder", 2000]}
               wrapper="span"
               cursor={true}
               repeat={Infinity}
@@ -191,8 +183,7 @@ const Main = () => {
               href="https://drive.google.com/uc?export=download&id=1--P6EiOqUxjz0Flv_YVEePymuFl4QCif"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-12 py-3 flex items-center justify-center gap-2 text-white font-semibold rounded-full border border-white transition-transform duration-300 hover:scale-105 shadow-lg "
-
+              className="px-12 py-3 flex items-center justify-center gap-2 text-white font-semibold rounded-full border border-white transition-transform duration-300 hover:scale-105 shadow-lg"
             >
               <FiDownload className="text-lg" />
               Download CV
